@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html lang="es">
+	<head>
+		<title>FORMULARIO HTML</title>		
+	
+	</head>
+	
+	<body>
+		<header>
+			<h1>Ejercicio Formularios</h1>
+		</header>
+
+		<form name="formulario" id="formulario" autocomplete="on"><br>
+				Email: <input type="email" name="email" autofocus><br>
+				Cantidad: <input type="number" name="cantidad" min="5" max="20"><br>
+				Teléfono: <input type="tel" name="telefono"><br>
+				Dirección Web: <input type="url" name="web"><br>
+				Color: <input type="color" name="color"><br>
+				Precio: <input type="number" name="precio"><br>
+				Fecha: <input type="date" name="fecha" min="2019-11-01" max="2019-11-30"><br>
+				Hora: <input type="time" name="hora" min="09:00" max="20:00" step="1800"><br>
+				Ciudad: <input list="ciudades"><br>
+				Número de Tarjeta: <input type="text" name="tarjeta" pattern="[0-9]{14,16}"><br>
+				Security Code: <input type="text" name="code" placeholder="nº posterior"><br>
+				Fecha Caducidad: <input type="month" name="caducidad"><br>
+		</form>
+
+		<datalist id="ciudades">
+			<option value="Madrid"></option>
+			<option value="Barcelona"></option>
+			<option value="Sevilla"></option>
+			<option value="Bilbao"></option>
+			<option value="La Coruña"></option>
+		</datalist>
+			
+	
+		
+		
+	</body>
+		
+</html>
