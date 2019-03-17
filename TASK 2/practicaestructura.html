@@ -2,11 +2,200 @@
 <html lang="es">
 <head>
 	<title>Estructura HTML5</title>
-	 <meta name="description" content="Documento de prueba para HTML5">
+	<meta name="description" content="Documento de prueba para HTML5">
 	<meta charset="utf-8">
+	<link rel='shortcut icon' type="image/x-icon" href="images/favicon.ico">
+
+	
+   <link href="tarea3.css" rel="stylesheet" type="text/css" />
+
+   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js?ver=3.1.2'> </script>
+   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&sensor=true"> </script>
+
+	<script type="text/javascript">
+		var mapa;
+
+		function inicializar() {
+			var opciones = {
+			  zoom: 6,
+			  mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			mapa = new google.maps.Map(document.getElementById('mapa_content'), opciones);
+			if (navigator.geolocation)
+			{
+			    //Hago el CallBack a mostrarLocalizacion
+				navigator.geolocation.getCurrentPosition(mostrarLocalizacion,manejadorDeError);
+			}
+			else{
+			    //Caso contraio muestro error
+				alert("Su navegador no soporta Geolocalizacion");
+				}
+		}
+
+	    function mostrarLocalizacion(posicion)
+	     {
+            var pos = new google.maps.LatLng(posicion.coords.latitude,posicion.coords.longitude);
+            //Muestro un tooltip con un mensaje sobre el mapa
+            var infowindow = new google.maps.InfoWindow({
+              map: mapa,
+              position: pos,
+              content: 'Tu ubicacion usando HTML5.'
+            });
+
+            mapa.setCenter(pos);
+	      }
+
+	    function manejadorDeError(error) {
+
+		   switch(error.code)
+            {
+                case error.PERMISSION_DENIED: alert("El usuario no permite compartir datos de geolocalizacion");
+                break;
+
+                case error.POSITION_UNAVAILABLE: alert("Imposible detectar la posicio actual");
+                break;
+
+                case error.TIMEOUT: alert("La posicion debe recuperar el tiempo de espera");
+                break;
+
+                default: alert("Error desconocido");
+                break;
+            }
+			var opciones = {
+			  map: mapa,
+			  position: new google.maps.LatLng(60, 105),
+			  content: content
+			};
+			var infowindow = new google.maps.InfoWindow(opciones);
+			mapa.setCenter(opciones.position);
+      }
+      google.maps.event.addDomListener(window, 'load', inicializar);
+
+	</script>
+
+
 
 </head>
 <body>
-	hola
+	<header>
+		<h1>Recetas Tradicionales</h1>
+		<h1>Lugar de encuentro aspirantes Top Chef</h1>
+	</header>
+	<nav>
+  		<a href="">Recetas</a>
+ 		<a href="">Concursantes</a>
+ 		<a href="">Jueces</a>
+	</nav>
+
+	<section id="receta" itemscope itemtype="http://schema.org/Recipe">
+		<header>
+			<h2 itemprop="name">Paella Valenciana</h2>
+		</header>
+		
+		<table border="1" class="datos">
+			<tr>
+				<th>Dificultad</th>
+				<th>Tiempo preparación</th>
+				<th>Calorías</th>
+				<th>Coste</th>
+			</tr>
+			<tr>
+				<td>baja</td>
+				<td itemprop="cookTime">20 minutos</td>
+				<td itemprop="calories">85 c/100gr</td>
+				<td itemprop="estimatedCost">0.75 &euro; /ración</td>
+			</tr>
+
+		</table>
+
+		<article>
+			<header>
+				<h3>Ingredientes</h3>
+			</header>
+
+				<ul>
+					<li itemprop="recipeIngredient">400 gramos de arroz bomba</li>
+					<li itemprop="recipeIngredient">1 Kg. de pollo troceado</li>
+					<li itemprop="recipeIngredient">500 gramos de conejo troceado</li>
+					<li itemprop="recipeIngredient">200 gramos de judías verdes</li>
+					<li itemprop="recipeIngredient">100 gramos de garrofó fresco</li>
+					<li itemprop="recipeIngredient">100 gramos de tomate troceado</li>
+					<li itemprop="recipeIngredient">6 cucharadas de aceite de oliva</li>
+					<li itemprop="recipeIngredient">Unas hebras de azafrán</li>
+					<li itemprop="recipeIngredient">Pimentón rojo molido</li>
+					<li itemprop="recipeIngredient">Una ramita de romero</li>
+					<li itemprop="recipeIngredient">Sal</li>
+				</ul>
+		</article>
+		<article>
+			<header>
+				<h3>Modo de preparación</h3>
+			</header>
+
+			<p itemprop="recipeInstructions">
+				Vierte el aceite sobre la paella y enciende el fuego. Una vez el aceite esté caliente, añade el conejo y el pollo y sofríelos hasta que adquieran un color dorado. Recuerda darle vueltas a las piezas de carne para que se hagan uniformemente. A continuación echa las verduras y rehógalas. Ahora vierte el tomate rallado y sofríelo del mismo modo, removiendo constantemente.
+			</p>
+			<p itemprop="recipeInstructions">
+				Ahora es el turno del pimentón. Añádelo y remuévelo apenas un instante, enseguida tienes que verter el agua hasta los remaches de la paella para evitar que se queme.
+				Añade el azafrán, el romero y la sal. Una vez que el agua rompa a hervir, déjala unos 5 minutos en ebullición con fuego vivo. A continuación baja a fuego medio y déjala cocer entre 20 y 30 minutos.
+			</p>
+			
+			<p itemprop="recipeInstructions">
+				Aviva el fuego y añade el arroz. La forma tradicional de ponerlo es haciendo una cruz en el agua que está hirviendo y repartirlo de modo uniforme por la superficie del recipiente. Aprovecha ahora para probar y rectificar de sal.
+
+			</p>
+
+			<p itemprop="recipeInstructions">
+				Mantén el fuego fuerte durante unos 10 minutos y reduce el fuego a la mitad durante un tiempo parecido hasta que el arroz quede en su punto de cocción.
+			</p>
+
+
+		</article>
+		<article>
+			<header>
+				<h3>Trucos y consejos</h3>
+			</header>
+
+			<p>
+				<b>Sal para evitar que se queme.</b> Cuando queremos que la carne se haga poco a poco y vaya dorándose a un ritmo progresivo pero el fuego es alto, podemos echar sal en los extremos de la paella para evitar que ésta se queme. Si lo hacemos en un fogón, nosotros mismos podremos regular la  intensidad del calor, pero si optamos por hacer la paella sobre leña podemos hacer uso de este consejo si queremos que la carne no se nos queme.
+
+			</p>
+
+			<img itemprop="photo" src="images/paella.jpg">
+			<figcaption>Muestra de presentación</figcaption>
+			<p>
+				<b>Evitar amargor.</b> Para que la paella no sepa amarga, debemos evitar que el fuego sea alto en el momento de echar el pimentón. Si hacemos que este ingrediente se queme, dejará un sabor amargo al resultado final de la preparación.	
+			</p>
+
+			<p>
+				<b>¿Hasta dónde verter el agua?</b> Generalmente, para saber qué cantidad de agua para la cocción utilizar debemos calcular que sea el doble que la de arroz. Sin embargo, otra forma de saberlo es vertiendo el agua hasta los remaches de las asas del recipiente.
+			</p>
+		</article>
+
+		<article>
+			<a href="http://recetaspaella.es/"><h1>Otras recetas</h1></a>
+		</article>
+
+		<article>
+			<img itemprop="photo" src="https://media.giphy.com/media/cIMpvjLSn9a8OOlzNy/giphy.gif">
+		</article>
+
+	</section>
+		
+	<section>
+		<h3>Posicionamiento con HTML, JavaScript y Google Maps</h3>
+		<article id="mapa_content">
+			
+		</article>
+
+		
+	</section>
+
+	<footer>
+		<p>Copyright: Mar Cabrera 2019</p>
+		<p>Asignatura: Programación Web</p>
+		<p>Dirección de contacto: Av. de los Jerónimos, 135, 30107 Guadalupe, Murcia</p>
+	</footer>
+
 </body>
 </html>
