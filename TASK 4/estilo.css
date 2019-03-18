@@ -1,0 +1,72 @@
+h1{
+	color: #42A1F4
+}
+
+h2{
+	color: blue;
+}
+
+a{
+	color: red;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse; /* Quita el borde de la tabla */
+}
+
+caption {
+	color: blue;
+}
+
+em{
+	color: blue;
+}
+
+span.especial {
+	color: #8131b2;
+	font-weight: bold;
+}
+
+tr.ro1 {
+	color: #e2d809;
+	font-weight: bold;
+}
+
+th.especial {
+	color:  #e2d809;
+}
+
+th.especial2 {
+	color: red;
+	font-weight: bold;
+}
+
+td {
+	color: green;
+	font-weight: bold;
+}
+
+.suspendisse{
+	color: red;
+}
+
+
+.destacado{
+	color: #ba9e3b;
+}
+
+.donec {
+	color: #ff42cf;
+	font-weight: bold;
+}
+
+#adicional {
+	color: #54ba28;
+}
+
+.fila {
+	color: yellow;
+}
+
+
